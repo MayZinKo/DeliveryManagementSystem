@@ -1,0 +1,14 @@
+.product-img img
+  {
+    width: 25px !important;
+    height:25px !important;
+  }
+  .box 
+  {
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+  }
+  svg
+  {
+  	height: 400px !important;
+  }
