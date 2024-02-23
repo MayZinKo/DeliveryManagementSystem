@@ -99,7 +99,7 @@
         
           <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
-            <li class="active"><a href="<?=base_url('customer/browse/unassign')?>"><i class="glyphicon glyphicon-fire"></i> <span>Today Route List</span></a></li>
+            <li class="active"><a href="#"><i class="glyphicon glyphicon-fire"></i> <span>Today Route List</span></a></li>
 
             <li class="header">USER GUIDE</li>
             <li><a href="#" onClick="alert('Comming Soon')"><i class="glyphicon glyphicon-file"></i> <span>Information</span></a></li>
