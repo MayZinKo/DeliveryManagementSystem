@@ -130,10 +130,10 @@ CREATE TABLE `customer` (
   `drop_point_id` int(11) NOT NULL,
   `timestamp` varchar(50) NOT NULL,
   `phone` varchar(20) NOT NULL,
-  `description` varchar(255) NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
   `customer_type` char(1) NOT NULL,
-  `deleted` tinyint(1) NOT NULL,
-  `done_status` tinyint(1) NOT NULL
+  `deleted` tinyint(1) NOT NULL DEFAULT '0',
+  `done_status` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 --

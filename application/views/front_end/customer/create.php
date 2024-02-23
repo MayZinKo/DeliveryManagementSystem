@@ -11,65 +11,9 @@
 <?php $assign_view_css=$this->config->item('assign_view_css'); ?>
 <link rel="stylesheet" type="text/css" href="<?=base_url($assign_view_css)?>">
 
-<script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDCrhhXV5hmkXJDdWkCuXjGBakTqyYceA&callback=initMap"></script>  
-
-<script>
+<!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDCrhhXV5hmkXJDdWkCuXjGBakTqyYceA"></script>   -->
 
 
-var marker = null;
-  var latitute_data="16.7849833";
-  var longitute_data="96.1192453";
-function township_change() {
-
-    var township = document.getElementById("township_id").value;
-  
-    var array = township.split(',');
-    
-    document.getElementById("latitude").innerHTML=array[1];
-    document.getElementById("longitude").innerHTML=array[2];
-
-    latitute_data = array[1];
-    longitute_data = array[2];
-    initialize(); 
-}
-
-function initialize() {
-
-  var mapProp = {
-    center:new google.maps.LatLng(latitute_data,longitute_data),
-    zoom:15,
-    mapTypeId:google.maps.MapTypeId.ROADMAP
-  };
-  var map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
-
-
-  google.maps.event.addListener(map, "click", function (e)
-   {
-    clearmarker();
-    var latLng = e.latLng;
-      
-    document.getElementById("latitude").value=latLng.lat();
-    document.getElementById("longitude").value=latLng.lng();
-    marker = new google.maps.Marker({
-             position: new google.maps.LatLng(latLng.lat(),latLng.lng()),
-             map: map,
-             draggable: true
-          });
-  });
-
-}
-google.maps.event.addDomListener(window, 'load', initialize);
-
-  function clearmarker()
-  {
-      if (marker) {
-                    marker.setMap(null);
-                    marker = null;
-                 }
-  }
-
-
-</script>
 <?php 
 			$action_go="Customer/save"; 
 			$attributes = array('method' => 'post','enctype'=>'multipart/form-data');	
@@ -197,9 +141,6 @@ google.maps.event.addDomListener(window, 'load', initialize);
   </tr>
 </table>
 
-                   
-
-
              </div>		<!-- <div class="col-md-8"> -->
 
            </div>	 <!-- <div class="row"> -->
@@ -208,7 +149,60 @@ google.maps.event.addDomListener(window, 'load', initialize);
 	
 <?= form_close();?>
 </div> <!-- <div class="content-wrapper"> -->
- <script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDCrhhXV5hmkXJDdWkCuXjGBakTqyYceA&callback=initMap"></script>  
+<script type="text/javascript">
+
+var marker = null;
+  var latitute_data="16.7849833";
+  var longitute_data="96.1192453";
+
+ 
+function township_change() {
+
+    var township = document.getElementById("township_id").value;
+  
+    var array = township.split(',');
+    
+    document.getElementById("latitude").innerHTML=array[1];
+    document.getElementById("longitude").innerHTML=array[2];
+
+    latitute_data = array[1];
+    longitute_data = array[2];
+    initialize(); 
+}
+
+function initialize() {
+  var mapProp = {
+    center:new google.maps.LatLng(latitute_data,longitute_data),
+    zoom:15,
+    mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+  var map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
+  
+  google.maps.event.addListener(map, "click", function (e)
+   {
+    clearmarker();
+    var latLng = e.latLng;
+    document.getElementById("latitude").value=latLng.lat();
+    document.getElementById("longitude").value=latLng.lng();
+    marker = new google.maps.Marker({
+             position: new google.maps.LatLng(latLng.lat(),latLng.lng()),
+             map: map,
+             draggable: true
+          });
+  });
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+  function clearmarker()
+  {
+      if (marker) {
+                    marker.setMap(null);
+                    marker = null;
+                 }
+  }
+</script>
+ <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDCrhhXV5hmkXJDdWkCuXjGBakTqyYceA&callback=initialize"></script>  
 
 
 
